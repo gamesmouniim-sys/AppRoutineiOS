@@ -156,3 +156,19 @@ flutter run -d ios
 Also open `ios/Runner.xcworkspace` (not `Runner.xcodeproj`) when running from Xcode.
 
 Note: `ios/Flutter/Generated.xcconfig` is intentionally generated locally and not committed. If missing, run `flutter pub get` before `pod install`.
+
+
+### sqlite3_flutter_libs modular headers (CocoaPods)
+
+If `pod install` reports that Swift pods cannot be integrated as static libraries because `sqlite3` does not define modules, this repo enables modular headers in `ios/Podfile` via:
+
+```ruby
+use_modular_headers!
+```
+
+Then run:
+
+```bash
+cd ios
+pod install --repo-update
+```

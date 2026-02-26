@@ -39,6 +39,9 @@ require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelpe
 
 flutter_ios_podfile_setup
 
+# Required for sqlite3_flutter_libs -> sqlite3 when integrating Swift pods as static libraries.
+use_modular_headers!
+
 target 'Runner' do
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 end
