@@ -105,7 +105,7 @@ flutter test
 
 ## iOS project structure note
 
-This repository now includes the expected iOS scaffold paths (`ios/Runner.xcodeproj`, `ios/Runner/Info.plist`, `ios/Podfile`, and `ios/Flutter/*.xcconfig`) so Flutter can detect iOS as a target platform.
+This repository includes a valid Xcode project scaffold (not just placeholders): `ios/Runner.xcodeproj` with a real `project.pbxproj`, workspace, and shared Runner scheme, plus `ios/Runner/Info.plist`, `ios/Podfile`, and `ios/Flutter/*.xcconfig`.
 
 If your local environment still reports missing iOS files, regenerate standard platform files with:
 
