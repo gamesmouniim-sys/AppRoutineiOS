@@ -138,3 +138,19 @@ pod repo update
 ```
 
 Then retry `pod install --repo-update`.
+
+
+### "No such module Flutter" (iOS)
+
+If Xcode reports `No such module 'Flutter'` in `AppDelegate.swift`, ensure CocoaPods xcconfigs are wired and pods are installed from the workspace:
+
+```bash
+flutter clean
+flutter pub get
+cd ios
+pod install --repo-update
+cd ..
+flutter run -d ios
+```
+
+Also open `ios/Runner.xcworkspace` (not `Runner.xcodeproj`) when running from Xcode.
