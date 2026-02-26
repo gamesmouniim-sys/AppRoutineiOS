@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>Deep Work Routine</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.deep.workmo</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>We use this to provide relevant ads for free users.</string>
+	<key>AppLovinSdkKey</key>
+	<string>YOUR_APPLOVIN_SDK_KEY</string>
+</dict>
+</plist>
