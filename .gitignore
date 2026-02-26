@@ -17,3 +17,7 @@ ios/Runner.xcworkspace/
 *.xcuserstate
 *.xcworkspace/xcuserdata/
 *.xcodeproj/xcuserdata/
+
+# Flutter iOS generated
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/

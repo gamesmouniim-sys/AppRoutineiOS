@@ -154,3 +154,5 @@ flutter run -d ios
 ```
 
 Also open `ios/Runner.xcworkspace` (not `Runner.xcodeproj`) when running from Xcode.
+
+Note: `ios/Flutter/Generated.xcconfig` is intentionally generated locally and not committed. If missing, run `flutter pub get` before `pod install`.
