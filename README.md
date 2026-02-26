@@ -114,3 +114,27 @@ flutter create .
 ```
 
 Then re-apply bundle identifiers and AppLovin keys.
+
+
+## CocoaPods/AppLovin troubleshooting
+
+If `pod install` fails with `None of your spec sources contain a spec satisfying the dependency: AppLovinSDK (= 13.6.0)`, use the CDN-backed specs flow:
+
+```bash
+cd ios
+pod install --repo-update
+```
+
+This repo's `Podfile` explicitly uses:
+
+```ruby
+source 'https://cdn.cocoapods.org/'
+```
+
+If your local CocoaPods setup is stale, run:
+
+```bash
+pod repo update
+```
+
+Then retry `pod install --repo-update`.
