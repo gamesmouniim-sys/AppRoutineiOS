@@ -102,3 +102,15 @@ Run:
 ```bash
 flutter test
 ```
+
+## iOS project structure note
+
+This repository now includes the expected iOS scaffold paths (`ios/Runner.xcodeproj`, `ios/Runner/Info.plist`, `ios/Podfile`, and `ios/Flutter/*.xcconfig`) so Flutter can detect iOS as a target platform.
+
+If your local environment still reports missing iOS files, regenerate standard platform files with:
+
+```bash
+flutter create .
+```
+
+Then re-apply bundle identifiers and AppLovin keys.
