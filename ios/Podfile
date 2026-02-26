@@ -1,0 +1,53 @@
+source 'https://cdn.cocoapods.org/'
+
+platform :ios, '13.0'
+
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+def flutter_root
+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+
+  if File.exist?(generated_xcode_build_settings_path)
+    File.foreach(generated_xcode_build_settings_path) do |line|
+      matches = line.match(/FLUTTER_ROOT\=(.*)/)
+      return matches[1].strip if matches
+    end
+  end
+
+  flutter_root_env = ENV['FLUTTER_ROOT']
+  return flutter_root_env unless flutter_root_env.nil? || flutter_root_env.empty?
+
+  flutter_bin = `which flutter`.strip
+  unless flutter_bin.empty?
+    return File.expand_path('..', File.dirname(File.realpath(flutter_bin)))
+  end
+
+  raise <<~ERROR
+    FLUTTER_ROOT could not be resolved.
+    Run `flutter pub get` first (which regenerates ios/Flutter/Generated.xcconfig),
+    or set FLUTTER_ROOT in your shell environment.
+  ERROR
+end
+
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+
+flutter_ios_podfile_setup
+
+# Required for sqlite3_flutter_libs -> sqlite3 when integrating Swift pods as static libraries.
+use_modular_headers!
+
+target 'Runner' do
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+  end
+end
